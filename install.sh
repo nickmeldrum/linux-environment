@@ -29,10 +29,16 @@ echo "setxkbmap -option caps:escape" > ~/.xsessionrc
 # install nodejs
 
 # setup bash prompt to include git info
+# setup a git credential manager to remember git password
+
+# setup password safe and dropbox to get my passwords
 
 # set terminal config to hide toolbar and chrome
 # set terminal config to load maximized
 # set a terminal shortcut key
 
 # setup aliases in bashrc
+
+# setup better resolution for debian (from virtualbox?)
+
 
