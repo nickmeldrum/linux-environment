@@ -27,7 +27,7 @@ filetype plugin indent on
 "gvim stuff
 set guioptions -=m
 set guioptions -=T
-set guifont=Consolas:h12:cANSI
+"set guifont=CONSOLAS:h14
 set guioptions -=r
 set guioptions -=R
 set guioptions -=l
