@@ -8,10 +8,9 @@
 # 2. aptitude install sudo
 # 3. adduser nick sudo
 # 4. reboot
-# 5. ./install.sh
+# 5. wget 
 
 # install apps
-sudo apt-get install git -y
 sudo apt-get install vim -y
 sudo apt-get install vim-gtk -y
 
