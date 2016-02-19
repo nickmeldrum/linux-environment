@@ -1,0 +1,18 @@
+## xfce shortcuts:
+
+ * ctrl-alt-< and> = move between workspaces
+ * alt-f1 = apps menu
+ * alt-f2 = launcher
+ * alt-f4 = close app
+ * alt-f11 = fullscreen toggle
+
+## My xfce shortcuts:
+
+ * ctrl-alt-t = xfce4-terminal --maximize --fullscreen
+ * ctrl-alt-g = gvim -f
+ * ctrl-alt-b = /usr/bin/google-chrome-stable %U
+
+## My terminal aliases/functions:
+
+ * execline n file = execute a line in a file in current bash session
+

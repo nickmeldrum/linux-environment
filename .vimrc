@@ -24,10 +24,12 @@ call vundle#end()
 
 filetype plugin indent on
 
+set clipboard=unnamed
+
 "gvim stuff
 set guioptions -=m
 set guioptions -=T
-"set guifont=CONSOLAS:h14
+"set guifont=CONSOLAS:h14:ANSI
 set guioptions -=r
 set guioptions -=R
 set guioptions -=l

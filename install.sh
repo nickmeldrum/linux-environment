@@ -35,39 +35,62 @@ ln -s -f ~/proj/env/CONSOLAI.TTF ~/.fonts/CONSOLAI.TTF
 ln -s -f ~/proj/env/CONSOLAZ.TTF ~/.fonts/CONSOLAAZ.TTF
 fc-cache -f -v
 
+# install dropbox
+pushd .
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+~/.dropbox-dist/dropboxd
+popd
+
+# password safe
+pushd .
+cd ~
+wget "http://freefr.dl.sourceforge.net/project/passwordsafe/Linux-BETA/0.94/passwordsafe-ubuntu-0.94BETA.amd64.deb"
+sudo dpkg -i passwordsafe-ubuntu-0.94BETA.amd64.deb -y
+sudo apt-get -f install -y
+sudo dpkg -i passwordsafe-ubuntu-0.94BETA.amd64.deb -y
+rm passwordsafe-ubuntu-0.94BETA.amd64.deb
+popd
+
+# install nodejs
+sudo apt-get install nodejs -y
+sudo apt-get -f install -y
+sudo apt-get install nodejs -y
+
+# xml config updates
+sudo apt-get install xmlstarlet -y
+cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml.bak
+
+function addKeyboardApp() {
+    path=~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+    xmlstarlet ed -a "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t elem -n property $path > $path
+    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n name -v $1 $path > $path
+    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n type -v "string" $path > $path
+    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n value -v $2  $path > $path
+}
+
+addKeyboardApp "&lt;Primary&gt;&lt;Alt&gt;g" "gvim"
+addKeyboardApp "&lt;Primary&gt;&lt;Alt&gt;t" "xfce4-terminal --maximize --fullscreen --hide-menubar"
+addKeyboardApp "&lt;Primary&gt;&lt;Alt&gt;b" "/usr/bin/google-chrome-stable"
+
+# cleanup
+sudo apt-get autoremove -y
+
 ## TODO:
+
+# setup password safe and dropbox to get my passwords
 
 # setup launcher shortcuts:
 # ctrl-alt-t = xfce4-terminal --maximize --fullscreen
 # ctrl-alt-g = gvim -f
 # ctrl-alt-b = /usr/bin/google-chrome-stable %U
 
-# install nodejs
-
 # setup bash prompt to include git info
 # setup a git credential manager to remember git password
-
-# setup password safe and dropbox to get my passwords
 
 # set terminal config to hide toolbar and chrome
 # set terminal config to load maximized
 # set a terminal shortcut key
 
-# setup script so no dependency on git:
-# 1. execute output of curl to a raw of a setup script that clones the git repo to do the rest
-
-
-# start building cheatsheet:
-
-# ## xfce shortcuts:
-# * ctrl-alt-< and> = move between workspaces
-# * alt-f1 = apps menu
-# * alt-f2 = launcher
-# * alt-f4 = close app
-# * alt-f11 = fullscreen toggle
-#
-# ## My xfce shortcuts:
-# * ctrl-alt-t = xfce4-terminal --maximize --fullscreen
-# * ctrl-alt-g = gvim -f
-# * ctrl-alt-b = /usr/bin/google-chrome-stable %U
+# link gvimrc
+# setup xmllint for prertyxml in vim
 
