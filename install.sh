@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# tested on debian 8 and xfce 4
-
-# must have installed sudo and added user as a sudo user.
-# How do this? This is how:
-# 1. su
-# 2. aptitude install sudo
-# 3. adduser nick sudo
-# 4. reboot
-# 5. wget 
-
 # install apps
 sudo apt-get install vim -y
 sudo apt-get install vim-gtk -y
@@ -20,17 +10,6 @@ ln -s -f ~/proj/env/.gitconfig ~/.gitconfig
 
 # map capslock to esc 
 echo "setxkbmap -option caps:escape" > ~/.xsessionrc
-
-# setup better resolution for debian (from virtualbox?)
-# from:
-# http://unix.stackexchange.com/questions/222659/how-do-i-adjust-the-screen-resolution-for-my-debian-8-1-64-bit-virtualbox-machin
-# su
-# then I ran Host+D (to insert the guest additions ISO),
-# mkdir /media/VirtualBoxGuestAdditions
-# mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
-# export KERN_DIR=/usr/src/kernels/`uname -r`
-# cd /media/VirtualBoxGuestAdditions
-# ./VBoxLinuxAdditions.run
 
 # setup vundle from cloning in git
 mkdir -p ~/.vim/bundle
@@ -48,8 +27,6 @@ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /et
 sudo apt-get update
 sudo apt-get install google-chrome-stable -y
 
-# TODO:
-
 # install consolas font
 mkdir -p ~/.fonts
 ln -s -f ~/proj/env/CONSOLA.TTF ~/.fonts/CONSOLA.TTF
@@ -58,7 +35,7 @@ ln -s -f ~/proj/env/CONSOLAI.TTF ~/.fonts/CONSOLAI.TTF
 ln -s -f ~/proj/env/CONSOLAZ.TTF ~/.fonts/CONSOLAAZ.TTF
 fc-cache -f -v
 
-# and get it used in terminal and vim
+## TODO:
 
 # setup launcher shortcuts:
 # ctrl-alt-t = xfce4-terminal --maximize --fullscreen
