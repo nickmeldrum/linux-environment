@@ -6,6 +6,7 @@ sudo apt-get install vim-gtk -y
 
 # setting up symlinks to config files
 ln -s -f ~/proj/env/.vimrc ~/.vimrc
+ln -s -f ~/proj/env/.gvimrc ~/.gvimrc
 ln -s -f ~/proj/env/.gitconfig ~/.gitconfig
 
 # map capslock to esc 
