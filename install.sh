@@ -60,17 +60,19 @@ sudo apt-get install nodejs -y
 sudo apt-get install xmlstarlet -y
 cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml.bak
 
-function addKeyboardApp() {
+function addKeyboardApp()
+{
     path=~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-    xmlstarlet ed -a "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t elem -n property $path > $path
-    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n name -v $1 $path > $path
-    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n type -v "string" $path > $path
-    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n value -v $2  $path > $path
+    xmlstarlet ed -a "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t elem -n property "$path" |
+    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n name -v "$1" |
+    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n type -v "string" |
+    xmlstarlet ed -i "/channel/property[@name='commands']/property[@name='custom']/property[last()]" -t attr -n value -v "$2" > $path.new
+    cp $path.new $path
 }
 
-addKeyboardApp "&lt;Primary&gt;&lt;Alt&gt;g" "gvim"
-addKeyboardApp "&lt;Primary&gt;&lt;Alt&gt;t" "xfce4-terminal --maximize --fullscreen --hide-menubar"
-addKeyboardApp "&lt;Primary&gt;&lt;Alt&gt;b" "/usr/bin/google-chrome-stable"
+addKeyboardApp "<Primary><Alt>g" "gvim"
+addKeyboardApp "<Primary><Alt>t" "xfce4-terminal --maximize --fullscreen --hide-menubar"
+addKeyboardApp "<Primary><Alt>b" "/usr/bin/google-chrome-stable"
 
 # cleanup
 sudo apt-get autoremove -y
