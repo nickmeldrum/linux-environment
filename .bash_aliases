@@ -10,5 +10,15 @@ function acg() {
     git commit -v -m "$1"
 }
 
+function log() {
+    if [ "$#" -ne 1 ]; then
+        length=5
+    else
+        length=$1
+    fi
+
+    git log -$length --pretty=format:'%C(yellow)%h %Cred%ad %C(yellow)%an%Cgreen%d %Creset%s' --date=short
+}
+
 cat ~/proj/env/cheatsheet
 

@@ -16,4 +16,5 @@
 
  * execline n file = execute a line in a file in current bash session
  * acg n = git add all files and commit with message n
+ * log n = git pretty 1 line log of n length (defaults to 5)
 
