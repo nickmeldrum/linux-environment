@@ -17,7 +17,7 @@ function log() {
         length=$1
     fi
 
-    git log -$length --pretty=format:'%C(yellow)%h %Cred%ad %C(yellow)%an%Cgreen%d %Creset%s' --date=short
+    git --no-pager log -$length --pretty=format:'%C(yellow)%h %Cred%ad %C(yellow)%an%Cgreen%d %Creset%s' --date=short
 }
 
 cat ~/proj/env/cheatsheet

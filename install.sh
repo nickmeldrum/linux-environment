@@ -1,5 +1,22 @@
 #!/bin/bash
 
+#install zsh
+if ! < /etc/shells grep zsh; then
+    sudo apt-get install zsh -y
+    sudo chsh -s /bin/zsh nick
+fi
+
+# install oh my zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+    pushd .
+    cd ~
+    rm -fr .oh-my-zsh/
+    curl -L http://install.ohmyz.sh > install.sh
+    sh install.sh
+    rm -f install.sh
+    popd
+fi
+
 # install tools
 sudo apt-get install curl -y
 
@@ -12,9 +29,6 @@ if [ ! -d /usr/share/doc/git/contrib/credential/gnome-keyring ]; then
     sudo make
     git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 fi
-
-# setup bash prompt to include git info
-#TODO!
 
 # install apps
 sudo apt-get install vim -y
@@ -43,9 +57,12 @@ fi
 vim +PluginInstall! +qall
 vim +PluginClean! +qall
 
-# setup bash profile
+# setup profile
 ln -s -f ~/proj/env/.bash_aliases ~/.bash_aliases
 ln -s -f ~/proj/env/.bash_profile ~/.bash_profile
+if ! grep --quiet ". ~/.bash_aliases" ~/.zshrc; then
+    echo ". ~/.bash_aliases" >> ~/.zshrc
+fi
 
 # install chrome
 # from http://www.tecmint.com/install-google-chrome-in-debian-ubuntu-linux-mint/
