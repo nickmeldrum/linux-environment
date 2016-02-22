@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# install git credential helper
+if [ ! -d /usr/share/doc/git/contrib/credential/gnome-keyring ]; then
+    sudo apt-get install libgnome-keyring-dev -y
+    sudo apt-get install make -y
+    sudo apt-get install gcc -y
+    cd /usr/share/doc/git/contrib/credential/gnome-keyring
+    sudo make
+    git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+fi
+
+# setup bash prompt to include git info
+#TODO!
+
 # install apps
 sudo apt-get install vim -y
 sudo apt-get install vim-gtk -y
@@ -90,14 +103,4 @@ fi
 
 # cleanup
 sudo apt-get autoremove -y
-
-## TODO:
-
-# setup bash prompt to include git info
-# setup a git credential manager to remember git password
-
-# set terminal config to hide toolbar and chrome
-# set terminal config to load maximized
-
-# setup xmllint for prertyxml in vim
 

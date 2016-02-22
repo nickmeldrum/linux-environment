@@ -14,6 +14,7 @@ You must have installed sudo and added current user as a sudo user before runnin
 ## Notes:
 
  * You will need to do a reboot after the install script has run for the capslock mapping to take effect
+ * Also you will have to hook up keepassx to it's database and keyfile via the gui on first run
 
 ## When running in a vm hosted by oracle virtualbox:
 
