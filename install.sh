@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install tools
+sudo apt-get install curl -y
+
 # install git credential helper
 if [ ! -d /usr/share/doc/git/contrib/credential/gnome-keyring ]; then
     sudo apt-get install libgnome-keyring-dev -y
@@ -73,8 +76,7 @@ fi
 sudo apt-get install keepassx -y
 
 # install nodejs
-sudo apt-get install nodejs -y
-sudo apt-get -f install -y
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install nodejs -y
 
 # xml config updates
