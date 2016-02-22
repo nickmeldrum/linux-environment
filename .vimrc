@@ -24,8 +24,6 @@ call vundle#end()
 
 filetype plugin indent on
 
-set clipboard=unnamed
-
 "gvim stuff
 set guioptions -=m
 set guioptions -=T
