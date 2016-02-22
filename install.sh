@@ -56,17 +56,8 @@ if [ ! -d ~/.dropbox-dist ]; then
     popd
 fi
 
-# password safe
-if [ ! -d ~/.dropbox-dist ]; then
-    pushd .
-    cd ~
-    wget "http://freefr.dl.sourceforge.net/project/passwordsafe/Linux-BETA/0.94/passwordsafe-ubuntu-0.94BETA.amd64.deb"
-    sudo dpkg -i passwordsafe-ubuntu-0.94BETA.amd64.deb -y
-    sudo apt-get -f install -y
-    sudo dpkg -i passwordsafe-ubuntu-0.94BETA.amd64.deb -y
-    rm passwordsafe-ubuntu-0.94BETA.amd64.deb
-    popd
-fi
+# keepassx
+sudo apt-get install keepassx -y
 
 # install nodejs
 sudo apt-get install nodejs -y
@@ -101,8 +92,6 @@ fi
 sudo apt-get autoremove -y
 
 ## TODO:
-
-# setup password safe and dropbox to get my passwords
 
 # setup bash prompt to include git info
 # setup a git credential manager to remember git password
