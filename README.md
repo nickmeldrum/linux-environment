@@ -5,7 +5,7 @@ You must have installed sudo and added current user as a sudo user before runnin
 
 ## Steps:
 
- 1. `wu`
+ 1. `su`
  2. `aptitude install sudo`
  3. `adduser nick sudo`
  4. `reboot`
